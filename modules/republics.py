@@ -11,4 +11,7 @@ def delete():
     return False
 
 def list():
-    return False
+    print("Listando todas as Repúblicas...")
+
+def enter():
+    print("Entrando em uma República...")

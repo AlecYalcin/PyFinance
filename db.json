@@ -1,0 +1,20 @@
+{
+    "user": {
+        "1": {
+            "name": "Alec",
+            "password": "123",
+            "tel": "(84) 9872-6535",
+            "is_staff": true,
+            "has_republic": false,
+            "republic": "none"
+        },
+        "2": {
+            "name": "Maicon",
+            "password": "1234",
+            "tel": "(84) 92222-1111",
+            "is_staff": false,
+            "has_republic": false,
+            "republic": "none"
+        }
+    }
+}
