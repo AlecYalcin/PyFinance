@@ -7,6 +7,10 @@ Discente: Alec Can Yalcin
 
 Projeto desenvolvido para avaliação da terceira unidade da matéria DCT1101 no CERES-UFRN.
 
+## Bibliotecas Utilizadas
+1. TinyDB
+Utilizado para guardar as informações em JSON como um banco de dados em dicionário.
+
 # Ideias e Módulos
 
 O sistema contra com três módulos: Autenticação(Authentication), Despesas(Finances),Receita(Receipt) e Republica(republics). O Principal objetivo do sistema é facilitar o pagamento das despesas, assim facilitando a vida do usuário. Contudo, um dos módulos adicionais serve para facilitar outros estudantes a encontarem despesas nas quais eles podem participar da renda e/ou tenham uma boa localização para eles.
