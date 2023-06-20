@@ -50,7 +50,3 @@ Se refere e receita da república, provinda dos próprios estudantes ou de um me
 Se refere as repúblicas dos estudantes. Afim de fiscalizar e prezar pela manutenção do sistema, diferentes república poderão utilizar-se do sistema.
 
 As repúblicas informam se há vagas para aquela república se um estudante quiser entrar nela. Também informa dos custos a se pagar para participar ativamente daquela república.
-
-## API Rest
-
-O sistema utilizará de APIs para guardar as informações disponíveis e também para gravá-las.
