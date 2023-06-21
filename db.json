@@ -5,8 +5,8 @@
             "password": "123",
             "tel": "(84) 9872-6535",
             "is_staff": true,
-            "has_republic": false,
-            "republic": "none"
+            "has_republic": true,
+            "republic": "Los Santos"
         },
         "2": {
             "name": "Maicon",
@@ -15,6 +15,34 @@
             "is_staff": false,
             "has_republic": false,
             "republic": "none"
+        },
+        "3": {
+            "name": "admin",
+            "password": "admin",
+            "tel": "(84) 7777-7777",
+            "is_staff": true,
+            "has_republic": true,
+            "republic": "Admins"
+        },
+        "4": {
+            "name": "test",
+            "password": "test",
+            "tel": "test",
+            "is_staff": true,
+            "has_republic": true,
+            "republic": "Afonso"
+        }
+    },
+    "republic": {
+        "1": {
+            "name": "",
+            "desc": "",
+            "owner": "test"
+        },
+        "2": {
+            "name": "Admins",
+            "desc": "Somente Admins",
+            "owner": "admin"
         }
     }
 }
