@@ -2,47 +2,50 @@
     "user": {
         "1": {
             "name": "Alec",
-            "password": "123",
-            "tel": "(84) 9872-6535",
-            "is_staff": true,
-            "has_republic": true,
-            "republic": "Los Santos"
-        },
-        "2": {
-            "name": "Maicon",
-            "password": "1234",
-            "tel": "(84) 92222-1111",
+            "password": "jessi2003",
+            "tel": "(84) 987626875",
             "is_staff": false,
             "has_republic": false,
-            "republic": "none"
+            "republic": "none",
+            "bank": 90000.0
         },
-        "3": {
+        "2": {
             "name": "admin",
             "password": "admin",
-            "tel": "(84) 7777-7777",
+            "tel": "admin",
             "is_staff": true,
             "has_republic": true,
-            "republic": "Admins"
-        },
-        "4": {
-            "name": "test",
-            "password": "test",
-            "tel": "test",
-            "is_staff": true,
-            "has_republic": true,
-            "republic": "Afonso"
+            "republic": "Republica Padrao"
         }
     },
     "republic": {
         "1": {
-            "name": "",
-            "desc": "",
-            "owner": "test"
-        },
+            "name": "Republica Padrao",
+            "desc": "Primeira Republica",
+            "owner": "admin",
+            "receipt": 676.0
+        }
+    },
+    "finance": {
         "2": {
-            "name": "Admins",
-            "desc": "Somente Admins",
-            "owner": "admin"
+            "republic": "Republica Padrao",
+            "name": "Conta de Agua",
+            "value": 450.0
+        },
+        "3": {
+            "republic": "Republica Padrao",
+            "name": "Fog\u00e3o Quebrado",
+            "value": 1200.0
+        },
+        "4": {
+            "republic": "Republica Padrao",
+            "name": "Geladeira Nova",
+            "value": 4500.0
+        },
+        "5": {
+            "republic": "Republica Padrao",
+            "name": "Brinquedo novo",
+            "value": 499.44
         }
     }
 }
