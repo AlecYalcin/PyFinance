@@ -38,6 +38,7 @@ def pay(republic, finance):
     if republic['receipt'] >= finance['value']:
         republic_db.update({'receipt': republic['receipt'] - finance['value']}, query.name == republic['name'])
         finance_db.remove((query.name == finance['name']) & (query.republic == finance['republic']))
+        print("Receita paga com sucesso!")
     else:
         print("Receita insuficiente para pagar essa despesa.")
         print("Adicione: R$" + str(finance['value'] - republic['receipt']))

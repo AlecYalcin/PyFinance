@@ -64,14 +64,14 @@ def pyAuth(user):
         if option == 2:
             finance.list(user['republic'])
         if option == 3:
-            financeName = input("Digite o nome da Despesa: ")
+            financeName = input("\nDigite o nome da Despesa: ")
             value       = float(input("Digite o valor da Despesa: R$"))
             finance.create(user['republic'], financeName, value)
         if option == 4:
-            receipt = float(input("Digite a quantia: R$"))
+            receipt = float(input("\nDigite a quantia: R$"))
             user = republic.addReceipt(user, receipt)
         if option == 5:
-            financeName = input("Digite o nome da Despesa: ")
+            financeName = input("\nDigite o nome da Despesa: ")
             finance.pay(user['republic'], financeName)
 
         if not user['is_staff']:
@@ -79,7 +79,7 @@ def pyAuth(user):
                 user = republic.leave(user)
         else:
             if option == 6:
-                newName = input("Digite o novo Nome: ")
+                newName = input("\nDigite o novo Nome: ")
                 newDesc = input("Digite a nova Descrição: ")
                 user = republic.update(user, newName, newDesc)
             if option == 7:

@@ -14,24 +14,21 @@
             "password": "admin",
             "tel": "admin",
             "is_staff": true,
-            "has_republic": true,
-            "republic": "Republica Padrao"
-        }
-    },
-    "republic": {
-        "1": {
-            "name": "Republica Padrao",
-            "desc": "Primeira Republica",
-            "owner": "admin",
-            "receipt": 676.0
-        }
-    },
-    "finance": {
-        "2": {
-            "republic": "Republica Padrao",
-            "name": "Conta de Agua",
-            "value": 450.0
+            "has_republic": false,
+            "republic": "none"
         },
+        "3": {
+            "name": "Jessiane",
+            "password": "MAEfilho",
+            "tel": "(84) 9661-6784",
+            "is_staff": false,
+            "has_republic": false,
+            "republic": "none",
+            "bank": 0.0
+        }
+    },
+    "republic": {},
+    "finance": {
         "3": {
             "republic": "Republica Padrao",
             "name": "Fog\u00e3o Quebrado",
@@ -46,6 +43,16 @@
             "republic": "Republica Padrao",
             "name": "Brinquedo novo",
             "value": 499.44
+        },
+        "6": {
+            "republic": "Republica Padrao",
+            "name": "Jessiane",
+            "value": 1200.0
+        },
+        "7": {
+            "republic": "Republica Padrao",
+            "name": "Liz Maria",
+            "value": 12300.99
         }
     }
 }

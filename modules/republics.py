@@ -6,6 +6,8 @@ user_db = db.table('user')
 Republic = Query()
 User     = Query()
 
+# CRUD
+
 def create(name, desc, owner):
 
     republic_db.insert(
@@ -25,7 +27,6 @@ def create(name, desc, owner):
 
 def read(name):
     republic = republic_db.get(Republic.name == name)
-    print("", end="\n")
     printRepublic(republic)
 
 def update(user, newName, newDesc):
