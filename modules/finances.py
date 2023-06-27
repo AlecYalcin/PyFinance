@@ -48,6 +48,9 @@ def list(republic):
     print("", end="\n")
     for finance in finances:
         printFinance(finance)
+    
+    if finances == []:
+        print("Sem despesas para pagar.")
 
 # STRING OPTIONS
 def printFinance(finance): 

@@ -8,24 +8,25 @@ def pyInfo():
     print("Link: https://github.com/AlecYalcin/PyFinance")
     print("Abrindo o link...")
     webbrowser.open('https://github.com/AlecYalcin/PyFinance')
-    print("", end="\n")
+    print("##################################")
 
 def pyAuth(user):
     print("##################################")
     print("            PyFinance             ")
     print("##################################")
     print("Usuário Logado:", user['name'])
+    print("########### República ############")
     # Ações de República
     if user['has_republic']:
-        print("[1] Verificar República")
-        print("[2] Verificar Despesas")
-        print("[3] Adicionar Despesas")
-        print("[4] Adicionar Receita")
-        print("[5] Pagar Despesas")
+        print("[1] República:   (!) Verificar")
+        print("[2] Despesas:    (!) Verificar")
+        print("[3] Despesas:    (+) Adicionar")
+        print("[4] Receita:     (+) Adicionar")
+        print("[5] Receita:     (-) Pagar")
 
         if user['is_staff']:
-            print("[6] Atualizar República")
-            print("[7] Desfazer República")
+            print("[6] República:   (?) Alterar")
+            print("[7] República:   (*) Desfazer")
         else:
             print("[6] Sair da República")
     else:
@@ -37,18 +38,24 @@ def pyAuth(user):
             print("[1] Entrar em uma República")
             print("[2] Listar Repúblicas")
             print("[3] Pesquisar por Repúblicas")
+
+    print("############ Usuário #############")
+    print("[8] Alterar Senha")
+    print("[9] Alterar Nome")
     print("[0] Logout")
+    print("##################################")
     option = int(input('Resposta: '))
+    print("##################################")
 
     if not user['has_republic']:
         if not user['is_staff']:
-            if option > 3:
+            if option > 3 and option < 8:
                 print("Você não pode realizar essa operação. Tente novamente.")
             elif option == 1:
                 republicEnter = input("Escolha uma república: ")
                 user = republic.enter(user, republicEnter)
         else:
-            if option > 3:
+            if option > 3 and option < 8:
                 print("Você não pode realizar essa operação. Tente novamente.")
             elif option == 1:
                 name = input("Digite o nome da sua república: ") 
@@ -85,9 +92,10 @@ def pyAuth(user):
             if option == 7:
                 user = republic.delete(user, user['republic'])
     if option == 0:
+        print("", end="\n")
         option = -1
-
-    print("", end="\n")
+    else:
+        input()
     return option, user
 
 def pyMain():

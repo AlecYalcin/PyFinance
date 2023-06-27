@@ -14,8 +14,8 @@
             "password": "admin",
             "tel": "admin",
             "is_staff": true,
-            "has_republic": false,
-            "republic": "none"
+            "has_republic": true,
+            "republic": "republica tcheca"
         },
         "3": {
             "name": "Jessiane",
@@ -36,7 +36,14 @@
             "bank": 0
         }
     },
-    "republic": {},
+    "republic": {
+        "1": {
+            "name": "republica tcheca",
+            "desc": "xana",
+            "owner": "admin",
+            "receipt": 0
+        }
+    },
     "finance": {
         "3": {
             "republic": "Republica Padrao",
