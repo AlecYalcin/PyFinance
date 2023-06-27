@@ -1,5 +1,5 @@
 import webbrowser
-from modules import authentication  as auth
+from modules import users            as auth
 from modules import republics       as republic
 from modules import finances        as finance
 
@@ -37,7 +37,7 @@ def pyAuth(user):
             print("[1] Entrar em uma República")
             print("[2] Listar Repúblicas")
             print("[3] Pesquisar por Repúblicas")
-    print("[0] Sair do Programa")
+    print("[0] Logout")
     option = int(input('Resposta: '))
 
     if not user['has_republic']:
@@ -84,6 +84,8 @@ def pyAuth(user):
                 user = republic.update(user, newName, newDesc)
             if option == 7:
                 user = republic.delete(user, user['republic'])
+    if option == 0:
+        option = -1
 
     print("", end="\n")
     return option, user
@@ -102,7 +104,7 @@ def pyMain():
     return option
 
 option = 1
-while (option > 0):
+while (option != 0):
     option = pyMain()
     if option == 1:
         name        = input("Nome do Usuário: ")

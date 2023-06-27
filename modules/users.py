@@ -32,8 +32,6 @@ def register(name, password, tel, is_staff):
     return login(name, password)
     
 ''' FUTURAS ATUALIZAÇÕES
-def logout():
-    return False
 
 def newPassword():
     print('Alterar Senha')
