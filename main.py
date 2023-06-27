@@ -42,10 +42,21 @@ def pyAuth(user):
     print("############ Usuário #############")
     print("[8] Alterar Senha")
     print("[9] Alterar Nome")
+    print("[10] Alterar Telefone")
     print("[0] Logout")
     print("##################################")
     option = int(input('Resposta: '))
     print("##################################")
+
+    if option == 8:
+        _password = input("Digite sua nova senha: ")
+        user = auth.newPassword(user, _password)
+    if option == 9:
+        _name = input("Digite seu novo nome: ")
+        user = auth.newName(user, _name)
+    if option == 10:
+        _tel = input("Digite seu novo telefone: ")
+        user = auth.newTel(user, _tel)
 
     if not user['has_republic']:
         if not user['is_staff']:
