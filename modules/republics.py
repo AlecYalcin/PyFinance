@@ -41,14 +41,21 @@ def update(user, newName, newDesc):
     return user
 
 def delete(user, name):
-    republic_db.remove(Republic.name == name)
-    republic_users = user_db.search(Republic.republic == name)
-    for attuser in republic_users:
-        attuser = leave(attuser)
-    
-    print("Removido com Sucesso!")
+    finances_db = db.table('finance')
+    republic_finances = finances_db.search(Republic.republic == name)
+
+    if republic_finances == []:
+        republic_db.remove(Republic.name == name)
+        republic_users = user_db.search(Republic.republic == name)
+        for attuser in republic_users:
+            attuser = leave(attuser)
+        
+        print("Removido com Sucesso!")
+    else: 
+        print("Ainda há despesas para se pagar, não foi possível efetuar a remoção.")
     user = user_db.get(User.name == user['name'])
     return user
+
 
 # USER OPTIONS
 
