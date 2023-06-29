@@ -17,6 +17,24 @@
             "has_republic": true,
             "republic": "Rep\u00fablica de BSI",
             "bank": 0
+        },
+        "3": {
+            "name": "Alec",
+            "password": "jessi2003",
+            "tel": "alec",
+            "is_staff": false,
+            "has_republic": true,
+            "republic": "Rep\u00fablica do Admin",
+            "bank": 200.0
+        },
+        "4": {
+            "name": "Paulo",
+            "password": "1234",
+            "tel": "paulo",
+            "is_staff": false,
+            "has_republic": false,
+            "republic": "none",
+            "bank": 0
         }
     },
     "republic": {
@@ -24,13 +42,24 @@
             "name": "Rep\u00fablica do Admin",
             "desc": "Primeira Rep\u00fablica",
             "owner": "admin",
-            "receipt": 100.0
+            "receipt": 91.0,
+            "capacity": 4,
+            "students": [
+                "Estudante01",
+                "Estudante02",
+                "Estudante03",
+                "Alec"
+            ]
         },
         "2": {
             "name": "Rep\u00fablica de BSI",
             "desc": "Para a TURMA de BSI",
             "owner": "Flavius",
-            "receipt": 0
+            "receipt": 0,
+            "capacity": 50,
+            "students": [
+                "Alec"
+            ]
         }
     },
     "finance": {
@@ -40,23 +69,11 @@
             "name": "Conta de \u00c1gua",
             "value": 110.0
         },
-        "3": {
-            "republic": "Rep\u00fablica do Admin",
-            "id": 2,
-            "name": "Conta de G\u00e1s",
-            "value": 75.0
-        },
         "4": {
             "republic": "Rep\u00fablica de BSI",
             "id": 1,
             "name": "Material Novo",
             "value": 200.0
-        },
-        "5": {
-            "republic": "Rep\u00fablica do Admin",
-            "id": 3,
-            "name": "Consertar Telhado",
-            "value": 34.0
         },
         "6": {
             "republic": "Rep\u00fablica de BSI",

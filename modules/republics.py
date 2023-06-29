@@ -9,14 +9,16 @@ Republic    = Query()
 User        = Query()
 
 # CRUD
-def create(name, desc, owner):
+def create(name, desc, owner, max):
 
     republic_db.insert(
         {
             'name': name,
             'desc': desc,
             'owner': owner['name'],
-            'receipt': 0
+            'receipt': 0,
+            'capacity': max,
+            'students': []
         }
     )
 
@@ -30,11 +32,11 @@ def read(name):
     republic = republic_db.get(Republic.name == name)
     printRepublic(republic)
 
-def update(user, newName, newDesc):
+def update(user, newName, newDesc, newCapacity):
 
-    if not newName == '\n' and not newDesc == '\n':
+    if not newName == '\n' and not newDesc == '\n' and not newCapacity == '\n':
         republic_users = user_db.search(Republic.republic == user['republic'])
-        republic_db.update({'name': newName, 'desc': newDesc}, Republic.name == user['republic'])
+        republic_db.update({'name': newName, 'desc': newDesc, 'capacity': newCapacity}, Republic.name == user['republic'])
         for attuser in republic_users:
             user_db.update({'republic': newName}, User.name == attuser['name'])
     user = user_db.get(User.name == user['name'])
@@ -60,7 +62,12 @@ def delete(user, name):
 # STRING OPTIONS
 
 def printRepublic(republic): 
-    print(f"\nRepública: {republic['name']}\n-> Descrição: {republic['desc']}\n-> Proprietário: {republic['owner']}\n-> Receita: {republic['receipt']}")
+    print(f"\nRepública: {republic['name']}")
+    print(f"-> Descrição: {republic['desc']}")
+    print(f"-> Proprietário: {republic['owner']}")
+    print(f"-> Receita: {republic['receipt']}")
+    print(f"-> Capacidade: {len(republic['students'])}/{republic['capacity']}")
+    print(f"-> Estudantes: {republic['students']}")
 
 # USER OPTIONS
 
@@ -84,8 +91,17 @@ def enter(user, republic):
     republic = republic_db.search(Republic.name == republic)
     if not republic == []:
         republic = republic[0]
-        user_db.update({'has_republic': True}, User.name == user['name'])
-        user_db.update({'republic': republic['name']}, User.name == user['name'])
+
+        if not len(republic['students']) == republic['capacity']:
+            user_db.update({'has_republic': True}, User.name == user['name'])
+            user_db.update({'republic': republic['name']}, User.name == user['name'])
+
+            students = republic['students']
+            students.append(user['name'])
+
+            republic_db.update({'students': students}, Republic.name == republic['name'])
+        else:
+            print("Essa república já atingiu sua capacidade máxima.")
     else:
         print("Essa república não foi encontrada, tente com outra.")
     user = user_db.get(User.name == user['name'])
@@ -94,8 +110,15 @@ def enter(user, republic):
 
 def leave(user):
     print("Saindo da República...")
+    republic = republic_db.get(Republic.name == user['republic'])
+
+    students = republic['students']
+    students.remove(user['name'])
+
     user_db.update({'has_republic': False}, User.name == user['name'])
     user_db.update({'republic': 'none'}, User.name == user['name'])
+
+    republic_db.update({'students': students}, Republic.name == user['republic'])
     
     user = user_db.get(User.name == user['name'])
     return user
@@ -157,7 +180,8 @@ def republicOptions(user):
             elif option == 1:
                 name = input("Digite o nome da sua república: ") 
                 desc = input("Descreva a sua república: ")
-                user = create(name, desc, user)
+                max  = int(input("Digite a Capacidade máxima da República: "))
+                user = create(name, desc, user, max)
         if option == 2:
             list()
         if option == 3:
@@ -188,7 +212,8 @@ def republicOptions(user):
             if option == 6:
                 newName = input("\nDigite o novo Nome: ")
                 newDesc = input("Digite a nova Descrição: ")
-                user = update(user, newName, newDesc)
+                newCapacity = input("Digite a nova Capacidade Máxima: ")
+                user = update(user, newName, newDesc, newCapacity)
             if option == 7:
                 user = delete(user, user['republic'])
 
