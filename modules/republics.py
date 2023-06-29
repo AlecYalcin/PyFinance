@@ -1,13 +1,14 @@
-from tinydb import TinyDB  as database, Query
+from tinydb     import TinyDB   as database, Query
+from modules    import finances as finance
+
 # DB OPTIONS
 db = database('./db.json', indent=4)
 republic_db = db.table('republic')
-user_db = db.table('user')
-Republic = Query()
-User     = Query()
+user_db     = db.table('user')
+Republic    = Query()
+User        = Query()
 
 # CRUD
-
 def create(name, desc, owner):
 
     republic_db.insert(
@@ -56,6 +57,10 @@ def delete(user, name):
     user = user_db.get(User.name == user['name'])
     return user
 
+# STRING OPTIONS
+
+def printRepublic(republic): 
+    print(f"\nRepública: {republic['name']}\n-> Descrição: {republic['desc']}\n-> Proprietário: {republic['owner']}\n-> Receita: {republic['receipt']}")
 
 # USER OPTIONS
 
@@ -106,7 +111,90 @@ def addReceipt(user, receipt):
     user = user_db.get(User.name == user['name'])
     return user
 
-# STRING OPTIONS
+def republicOptions(user):
+    print("##################################")
+    print("            PyFinance             ")
+    print("##################################")
+    print("Usuário Logado:", user['name'])
+    print("########### República ############")
+    # Ações de República
+    if user['has_republic']:
+        print("[1] Informações da República")
+        print("[2] Lista de Despesas")
+        print("[3] Adicionar Despesa")
+        print("[4] Adicionar Receita")
+        print("[5] Pagar Despesas")
 
-def printRepublic(republic): 
-    print(f"\nRepública: {republic['name']}\n-> Descrição: {republic['desc']}\n-> Proprietário: {republic['owner']}\n-> Receita: {republic['receipt']}")
+        if user['is_staff']:
+            print("[6] Modificar República")
+            print("[7] Excluir República")
+        else:
+            print("[6] Sair da República")
+    else:
+        if user['is_staff']:
+            print('[1] Criar uma República')
+            print("[2] Listar Repúblicas")
+            print("[3] Pesquisar por Repúblicas")
+        else:
+            print("[1] Entrar em uma República")
+            print("[2] Listar Repúblicas")
+            print("[3] Pesquisar por Repúblicas")
+    print("[0] Voltar a Tela de Usuário")
+    print("##################################")
+    option = int(input('Resposta: '))
+    print("##################################")
+
+    if not user['has_republic']:
+        if not user['is_staff']:
+            if option > 3 and option < 8:
+                print("Você não pode realizar essa operação. Tente novamente.")
+            elif option == 1:
+                republicEnter = input("Escolha uma república: ")
+                user = enter(user, republicEnter)
+        else:
+            if option > 3 and option < 8:
+                print("Você não pode realizar essa operação. Tente novamente.")
+            elif option == 1:
+                name = input("Digite o nome da sua república: ") 
+                desc = input("Descreva a sua república: ")
+                user = create(name, desc, user)
+        if option == 2:
+            list()
+        if option == 3:
+            search()
+    else:
+        if option == 1:
+            read(user['republic'])
+        if option == 2:
+            finance.list(user['republic'])
+        if option == 3:
+            financeName = input("\nDigite o nome da Despesa: ")
+            value       = float(input("Digite o valor da Despesa: R$"))
+            finance.create(user['republic'], financeName, value)
+        if option == 4:
+            receipt = float(input("\nDigite a quantia: R$"))
+            user = addReceipt(user, receipt)
+        if option == 5:
+            if finance.verify(user['republic']):
+                financeName = input("\nDigite o nome da Despesa ou seu ID: ")
+                finance.payOptions(user['republic'], financeName)
+            else:
+                print("\nNão há despesas a pagar.")
+
+        if not user['is_staff']:
+            if option == 6:
+                user = leave(user)
+        else:
+            if option == 6:
+                newName = input("\nDigite o novo Nome: ")
+                newDesc = input("Digite a nova Descrição: ")
+                user = update(user, newName, newDesc)
+            if option == 7:
+                user = delete(user, user['republic'])
+
+    if option == 0:
+        print("", end="\n")
+        option = -1
+    else:
+        input()
+    return option, user

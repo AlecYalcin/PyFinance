@@ -1,9 +1,11 @@
-from tinydb     import TinyDB       as database, Query
+from tinydb     import TinyDB           as database, Query
+from modules.republics  import republicOptions
 
 db = database('./db.json', indent=4)
 user_db = db.table('user')
 User     = Query()
 
+#AUTHENTICATION
 def login(name, password):
     UserQuery = Query()
     user = user_db.search((UserQuery.name == name) & (UserQuery.password == password))
@@ -31,6 +33,11 @@ def register(name, password, tel, is_staff):
     )
 
     return login(name, password)
+
+#USER OPTIONS
+
+def printUser(user):
+    print(f"\n-> Usuário: {user['name']}\n-> Telefone: {user['tel']}\n-> Saldo: {user['bank']}\n-> República: {user['republic']}")
 
 def newPassword(user, _password):
     if user['password'] == _password:
@@ -74,5 +81,56 @@ def newTel(user, _tel):
     user = user_db.get(User.name == user['name'])
     return user
 
-def addBank():
-    print('Alterar Telefone')
+def addBank(user, _bank):
+    user_db.update({'bank': user['bank']+_bank}, User.name == user['name'])
+    user = user_db.get(User.name == user['name'])
+
+    print("Valor atual: R$" + str(user['bank']))
+
+    return user
+
+def userOptions(user):
+    print("##################################")
+    print("            PyFinance             ")
+    print("##################################")
+    print("Usuário Logado: Teste")
+    print("##################################")
+    print("[1] Acessar República")
+    print("[2] Informações da Conta")
+    print("[3] Alterar Nome")
+    print("[4] Alterar Senha")
+    print("[5] Alterar Telefone")
+    print("[6] Adicionar Saldo")
+    print("[0] Logout")
+    print("##################################")
+    option = int(input('Resposta: '))
+    print("##################################")
+
+    if option == 1:
+        print("", end="\n")
+        while(option > 0):
+            option, user = republicOptions(user)
+    elif option == 2:
+        printUser(user)
+    elif option == 3:
+        _name = input("\nDigite seu novo nome: ")
+        user = newName(user, _name)
+    elif option == 4:
+        _password = input("\nDigite sua nova senha: ")
+        user = newPassword(user, _password)
+    elif option == 5:
+        _tel = input("\nDigite seu novo telefone: ")
+        user = newTel(user, _tel)
+    elif option == 6:
+        _bank = float(input("\nDigite um valor para adicionar: R$"))
+        user = addBank(user, _bank)
+    
+    if option == 0:
+        print("", end="\n")
+        option = -1
+    elif option == -1:
+        option = 8
+    else:
+        input()
+
+    return option, user
