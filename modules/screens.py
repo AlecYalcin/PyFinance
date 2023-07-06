@@ -15,7 +15,7 @@ def pyInfo():
     print("Todas as informações sobre o projeto podem ser lidas no README.md presente no Repositório do GitHub")
     print("Link: https://github.com/AlecYalcin/PyFinance")
     print("Abrindo o link...")
-    webbrowser.open('https://github.com/AlecYalcin/PyFinance')
+    webbrowser.open('https://github.com/AlecYalcin/PyFinance/blob/mainv4.0/README.md')
     print("##################################")
     input("Aperte ENTER para voltar a tela original...")
 

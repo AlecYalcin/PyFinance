@@ -26,32 +26,32 @@ a procurar por elas e ter acesso indefinido. Já o Proprietário é dono de uma 
 
 Eles possuem algumas propriedades:
 > ### Propriedades de Users
-> - ```name: String```
-> - ```password: String```
-> - ```tel: String```
-> - ```is_staff: Boolean```
-> - ```has_republic: Boolean (False)```
-> - ```republic: String (none)```
-> - ```bank: Float (0.0)```
+> - ``name: String``
+> - ``password: String``
+> - ``tel: String``
+> - ``is_staff: Boolean``
+> - ``has_republic: Boolean (False)``
+> - ``republic: String (none)``
+> - ``bank: Float (0.0)``
 
 Também possuindo algumas funções.
 > ### Funções de Users
-> - ```login(name: String, password: String)```
->   - ```Retorna "user" como um dicionário.```
-> - ```register(name: String, password: String, tel: String, is_staff: Boolean)```
->   - ```Retorna a função login(user).```
-> - ```printUser(user: Dictionary)```
->   - ```Não tem retorno. Executa um print que retorna todas as informações do usuário formatadas```
-> - ```newName(user: Dictionary, _name: String)```
->   - ```Retorna o dicionário user. Altera o valor do nome do usuário no banco de dados local.```
-> - ```newPassword(user: Dictionary, _password: String)```
->   - ```Retorna o dicionário user. Altera o valor da senha do usuário no banco de dados local.```
-> - ```newTel(user: Dictionary, _tel: String)```
->   - ```Retorna o dicionário user. Altera o valor do telefone do usuário no banco de dados local.```
-> - ```addBank(user: Dictionary, _bank: Float)```
->   - ```Retorna o dicionário user. Adiciona valores float para o valor banco do usuário.```
-> - ```userOptions(user: Dictionary)```
->   - ```Retorna int options e dicionário user. Retorna um valor de escolha do usuário.```
+> - ``login(name: String, password: String)``
+>   - ``Retorna "user" como um dicionário.``
+> - ``register(name: String, password: String, tel: String, is_staff: Boolean)``
+>   - ``Retorna a função login(user).``
+> - ``printUser(user: Dictionary)``
+>   - ``Não tem retorno. Executa um print que retorna todas as informações do usuário formatadas``
+> - ``newName(user: Dictionary, _name: String)``
+>   - ``Retorna o dicionário user. Altera o valor do nome do usuário no banco de dados local.``
+> - ``newPassword(user: Dictionary, _password: String)``
+>   - ``Retorna o dicionário user. Altera o valor da senha do usuário no banco de dados local.``
+> - ``newTel(user: Dictionary, _tel: String)``
+>   - ``Retorna o dicionário user. Altera o valor do telefone do usuário no banco de dados local.``
+> - ``addBank(user: Dictionary, _bank: Float)``
+>   - ``Retorna o dicionário user. Adiciona valores float para o valor banco do usuário.``
+> - ``userOptions(user: Dictionary)``
+>   - ``Retorna int options e dicionário user. Retorna um valor de escolha do usuário.``
 
 ## Repúblicas
 
