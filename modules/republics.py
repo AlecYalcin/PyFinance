@@ -196,5 +196,5 @@ def republicOptions(user):
             input("\nAperter ENTER para Continuar.")
     except:
         option = 9
-        
+
     return option, user
