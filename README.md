@@ -12,10 +12,12 @@ Projeto desenvolvido para avaliação da terceira unidade da matéria DCT1101 no
 Ferramenta disponibilizada pelo próprio Python, serve para o desenvolvimento interno, faciliza na integração e manipulação de bibliotecas.
 2. TinyDB
 Utilizado para guardar as informações em JSON como um banco de dados em dicionário.
+3. Os, Webbrouser e Platform
+Somente utilizado para formatação geral do sistema.
 
 # Ideias e Módulos
 
-O sistema contra com três módulos: Autenticação(Authentication), Despesas(Finances),Receita(Receipt) e Republica(republics). O Principal objetivo do sistema é facilitar o pagamento das despesas, assim facilitando a vida do usuário. Contudo, um dos módulos adicionais serve para facilitar outros estudantes a encontarem despesas nas quais eles podem participar da renda e/ou tenham uma boa localização para eles.
+O sistema contra com três módulos: Autenticação(Authentication), Despesas(Finances) e Republica(republics). O Principal objetivo do sistema é facilitar o pagamento das despesas, assim facilitando a vida do usuário. Contudo, um dos módulos adicionais serve para facilitar outros estudantes a encontarem despesas nas quais eles podem participar da renda e/ou tenham uma boa localização para eles.
 
 ## Authentication
 
@@ -31,19 +33,7 @@ Serve para os estudantes terem ideia das finanças, além das fixas, e registrá
 
 ## Finances
 
-Se refere as próprias despesas, nome, custo, tempo de vencimento, receita disponível suficiente.
-
-Existem dois tipos de finanças para a república: Finanças Fixas e Variáveis.
-
-1. Fixas
-refere-se a finanças que sempre deverão estar em dia para a continuidade dos estudantes dentro daquela república acessando os serviços: Água e Energia são exemplos
-
-2. Variáveis
-refere-se a finanças que surgem de necessidades dos estudantes e que não necessariamente precisam ser cobradas em um determinado tempo. Tais como gás, confortos, alimentação entre outros.
-
-## Receipt
-
-Se refere e receita da república, provinda dos próprios estudantes ou de um meio externo. Essa receita pode ser diretamente retirada das contas dos estudantes ou adicionadas por meio de doações externas.
+Se refere as próprias despesas, nome, custo, receita disponível suficiente.
 
 ## Republics
 
