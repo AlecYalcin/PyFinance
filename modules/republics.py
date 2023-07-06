@@ -195,6 +195,7 @@ def republicOptions(user):
         else:
             input("\nAperter ENTER para Continuar.")
     except:
+        input('\nHouve algum erro durante a execução. Aperte ENTER para Sair.')
         option = 9
 
     return option, user

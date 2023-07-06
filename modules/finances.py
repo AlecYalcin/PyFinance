@@ -41,7 +41,7 @@ def payOptions(republic, finance):
 
     if finances == []:
         finance = finance_db.get(query.id == int(finance))
-
+        
         if finance:
             pay(republic, finance)
         else:
@@ -52,6 +52,9 @@ def payOptions(republic, finance):
         for finance in finances:
             printFinance(finance)
     else:
+        print("Nenhuma despesa foi retornada, talvez você quis dizer: ")
+        for finance in finances:
+            printFinance(finance)
         finance = finances[0]
         pay(republic, finance)
         
