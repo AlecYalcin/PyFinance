@@ -1,5 +1,6 @@
-from tinydb     import TinyDB           as database, Query
+from tinydb             import TinyDB           as database, Query
 from modules.republics  import republicOptions
+from modules.screens    import pyUser
 
 db = database('./db.json', indent=4)
 user_db = db.table('user')
@@ -90,22 +91,7 @@ def addBank(user, _bank):
     return user
 
 def userOptions(user):
-    print("##################################")
-    print("            PyFinance             ")
-    print("##################################")
-    print("Usuário Logado: Teste")
-    print("##################################")
-    print("[1] Acessar República")
-    print("[2] Informações da Conta")
-    print("[3] Alterar Nome")
-    print("[4] Alterar Senha")
-    print("[5] Alterar Telefone")
-    print("[6] Adicionar Saldo")
-    print("[0] Logout")
-    print("##################################")
-    option = int(input('Resposta: '))
-    print("##################################")
-
+    option = pyUser(user)
     if option == 1:
         print("", end="\n")
         while(option > 0):

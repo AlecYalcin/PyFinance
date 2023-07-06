@@ -1,27 +1,5 @@
-import webbrowser
-from modules import users           as auth
-from modules import republics       as republic
-from modules import finances        as finance
-
-def pyInfo():
-    print("Todas as informações sobre o projeto podem ser lidas no README.md presente no Repositório do GitHub")
-    print("Link: https://github.com/AlecYalcin/PyFinance")
-    print("Abrindo o link...")
-    webbrowser.open('https://github.com/AlecYalcin/PyFinance')
-    print("##################################")
-
-def pyMain():
-    print("##################################")
-    print("            PyFinance             ")
-    print("##################################")
-    print("[1] Login")
-    print("[2] Registro")
-    print("[3] Informações sobre o PyFinance")
-    print("[0] Sair do Programa")
-    print("##################################")
-    option = int(input("Resposta: "))
-    print("##################################\n")
-    return option
+from modules import users as auth
+from modules.screens import pyMain, pyInfo
 
 option = 1
 while (option != 0):

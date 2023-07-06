@@ -1,5 +1,6 @@
-from tinydb     import TinyDB   as database, Query
-from modules    import finances as finance
+from tinydb             import TinyDB   as database, Query
+from modules            import finances as finance
+from modules.screens    import pyRepublic
 
 # DB OPTIONS
 db = database('./db.json', indent=4)
@@ -65,7 +66,7 @@ def printRepublic(republic):
     print(f"\nRepública: {republic['name']}")
     print(f"-> Descrição: {republic['desc']}")
     print(f"-> Proprietário: {republic['owner']}")
-    print(f"-> Receita: {republic['receipt']}")
+    print(f"-> Receita: R${republic['receipt']}")
     print(f"-> Capacidade: {len(republic['students'])}/{republic['capacity']}")
     print(f"-> Estudantes: {republic['students']}")
 
@@ -135,38 +136,7 @@ def addReceipt(user, receipt):
     return user
 
 def republicOptions(user):
-    print("##################################")
-    print("            PyFinance             ")
-    print("##################################")
-    print("Usuário Logado:", user['name'])
-    print("########### República ############")
-    # Ações de República
-    if user['has_republic']:
-        print("[1] Informações da República")
-        print("[2] Lista de Despesas")
-        print("[3] Adicionar Despesa")
-        print("[4] Adicionar Receita")
-        print("[5] Pagar Despesas")
-
-        if user['is_staff']:
-            print("[6] Modificar República")
-            print("[7] Excluir República")
-        else:
-            print("[6] Sair da República")
-    else:
-        if user['is_staff']:
-            print('[1] Criar uma República')
-            print("[2] Listar Repúblicas")
-            print("[3] Pesquisar por Repúblicas")
-        else:
-            print("[1] Entrar em uma República")
-            print("[2] Listar Repúblicas")
-            print("[3] Pesquisar por Repúblicas")
-    print("[0] Voltar a Tela de Usuário")
-    print("##################################")
-    option = int(input('Resposta: '))
-    print("##################################")
-
+    option = pyRepublic(user)
     if not user['has_republic']:
         if not user['is_staff']:
             if option > 3 and option < 8:
