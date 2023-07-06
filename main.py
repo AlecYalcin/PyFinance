@@ -3,14 +3,21 @@ from modules.screens import pyMain, pyInfo
 
 option = 1
 while (option != 0):
-    option = pyMain()
+    try:
+        option = pyMain()
+    except:
+        option = 9
+
     if option == 1:
         name        = input("Nome do Usuário: ")
         password    = input("Senha do Usuário: ")
         user = auth.login(name, password)
         if user:
             while(option > 0):
-                option, user = auth.userOptions(user)
+                try:
+                    option, user = auth.userOptions(user)
+                except:
+                    option = 9
     elif option == 2:
         name        = input("Nome do Usuário: ")
         password    = input("Senha do Usuário: ")
@@ -20,6 +27,9 @@ while (option != 0):
         user = auth.register(name, password, tel, is_staff)
         if user:
             while(option > 0):
-                option, user = auth.userOptions(user)
+                try:
+                    option, user = auth.userOptions(user)
+                except:
+                    option = 9
     elif option == 3:
         pyInfo()

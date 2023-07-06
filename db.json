@@ -1,94 +1,92 @@
 {
     "user": {
         "1": {
-            "name": "admin",
-            "password": "admin",
-            "tel": "admin",
-            "is_staff": true,
+            "name": "Alec",
+            "password": "alec1234",
+            "tel": "(84) 98762-6875",
+            "is_staff": false,
             "has_republic": true,
-            "republic": "Rep\u00fablica Padr\u00e3o",
-            "bank": 1600.0
+            "republic": "Turma de BSI",
+            "bank": 650.0
         },
         "2": {
-            "name": "Flavius",
-            "password": "1234",
-            "tel": "flavius",
-            "is_staff": true,
-            "has_republic": true,
-            "republic": "Rep\u00fablica de BSI",
+            "name": "Jo\u00e3o Lucas",
+            "password": "joaolucasdantas",
+            "tel": "(84) 98888-4444",
+            "is_staff": false,
+            "has_republic": false,
+            "republic": "none",
             "bank": 0
         },
         "3": {
-            "name": "Alec",
-            "password": "jessi2003",
-            "tel": "alec",
+            "name": "J\u00falio Azevedo",
+            "password": "warcraft34@",
+            "tel": "(84) 91234-1234",
             "is_staff": false,
-            "has_republic": true,
-            "republic": "Rep\u00fablica Padr\u00e3o",
-            "bank": 200.0
+            "has_republic": false,
+            "republic": "none",
+            "bank": 0
         },
         "4": {
-            "name": "Paulo",
-            "password": "1234",
-            "tel": "paulo",
+            "name": "Max Maximus",
+            "password": "meteorodepegasus",
+            "tel": "(83) 97878-8989",
             "is_staff": false,
             "has_republic": false,
             "republic": "none",
             "bank": 0
         },
         "5": {
-            "name": "sda",
-            "password": "sd",
-            "tel": "asdas",
-            "is_staff": false,
-            "has_republic": false,
-            "republic": "none",
+            "name": "Flavius",
+            "password": "turmadebsi",
+            "tel": "(84) 99999-9999",
+            "is_staff": true,
+            "has_republic": true,
+            "republic": "Turma de BSI",
+            "bank": 0
+        },
+        "6": {
+            "name": "M\u00e1rcio",
+            "password": "algebralinear",
+            "tel": "(84) 98888-8888",
+            "is_staff": true,
+            "has_republic": true,
+            "republic": "Rep\u00fablica dos Matem\u00e1ticos",
             "bank": 0
         }
     },
     "republic": {
         "1": {
-            "name": "Rep\u00fablica Padr\u00e3o",
-            "desc": "Rep\u00fablica Padr\u00e3o",
-            "owner": "admin",
-            "receipt": 91.0,
-            "capacity": "12",
-            "students": [
-                "Estudante01",
-                "Estudante02",
-                "Estudante03",
-                "Alec"
-            ]
-        },
-        "2": {
-            "name": "Rep\u00fablica de BSI",
-            "desc": "Para a TURMA de BSI",
+            "name": "Turma de BSI",
+            "desc": "Rep\u00fablica feita para a turma de BSI",
             "owner": "Flavius",
-            "receipt": 0,
+            "receipt": 50.0,
             "capacity": 50,
             "students": [
                 "Alec"
             ]
+        },
+        "2": {
+            "name": "Rep\u00fablica dos Matem\u00e1ticos",
+            "desc": "Rep\u00fablica s\u00f3 para quem passar em \u00e1lgebra linear, hehehe",
+            "owner": "M\u00e1rcio",
+            "receipt": 0,
+            "capacity": 4,
+            "students": []
         }
     },
     "finance": {
+        "1": {
+            "republic": "Turma de BSI",
+            "id": 1,
+            "name": "Conta de \u00c1gua",
+            "value": 200.0
+        },
         "2": {
-            "republic": "Rep\u00fablica do Admin",
-            "id": 1,
-            "name": "Conta de \u00c1gua",
-            "value": 110.0
-        },
-        "4": {
-            "republic": "Rep\u00fablica de BSI",
-            "id": 1,
-            "name": "Material Novo",
-            "value": 200.0
-        },
-        "6": {
-            "republic": "Rep\u00fablica de BSI",
-            "id": 1,
-            "name": "Conta de \u00c1gua",
-            "value": 200.0
+            "republic": "Turma de BSI",
+            "id": 2,
+            "name": "Conta de Luz",
+            "value": 120.0
         }
     }
 }

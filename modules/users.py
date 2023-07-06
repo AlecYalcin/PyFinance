@@ -91,32 +91,36 @@ def addBank(user, _bank):
     return user
 
 def userOptions(user):
-    option = pyUser(user)
-    if option == 1:
-        print("", end="\n")
-        while(option > 0):
-            option, user = republicOptions(user)
-    elif option == 2:
-        printUser(user)
-    elif option == 3:
-        _name = input("\nDigite seu novo nome: ")
-        user = newName(user, _name)
-    elif option == 4:
-        _password = input("\nDigite sua nova senha: ")
-        user = newPassword(user, _password)
-    elif option == 5:
-        _tel = input("\nDigite seu novo telefone: ")
-        user = newTel(user, _tel)
-    elif option == 6:
-        _bank = float(input("\nDigite um valor para adicionar: R$"))
-        user = addBank(user, _bank)
+    try:
+        option = pyUser(user)
+
+        if option == 1:
+            print("", end="\n")
+            while(option > 0):
+                option, user = republicOptions(user)
+        elif option == 2:
+            printUser(user)
+        elif option == 3:
+            _name = input("\nDigite seu novo nome: ")
+            user = newName(user, _name)
+        elif option == 4:
+            _password = input("\nDigite sua nova senha: ")
+            user = newPassword(user, _password)
+        elif option == 5:
+            _tel = input("\nDigite seu novo telefone: ")
+            user = newTel(user, _tel)
+        elif option == 6:
+            _bank = float(input("\nDigite um valor para adicionar: R$"))
+            user = addBank(user, _bank)
     
-    if option == 0:
-        print("", end="\n")
-        option = -1
-    elif option == -1:
-        option = 8
-    else:
-        input()
+        if option == 0:
+            print("", end="\n")
+            option = -1
+        elif option == -1:
+            option = 8
+        else:
+            input("\nAperte ENTER para Continuar.")
+    except:
+        option = 9
 
     return option, user

@@ -136,60 +136,65 @@ def addReceipt(user, receipt):
     return user
 
 def republicOptions(user):
-    option = pyRepublic(user)
-    if not user['has_republic']:
-        if not user['is_staff']:
-            if option > 3 and option < 8:
-                print("Você não pode realizar essa operação. Tente novamente.")
-            elif option == 1:
-                republicEnter = input("Escolha uma república: ")
-                user = enter(user, republicEnter)
-        else:
-            if option > 3 and option < 8:
-                print("Você não pode realizar essa operação. Tente novamente.")
-            elif option == 1:
-                name = input("Digite o nome da sua república: ") 
-                desc = input("Descreva a sua república: ")
-                max  = int(input("Digite a Capacidade máxima da República: "))
-                user = create(name, desc, user, max)
-        if option == 2:
-            list()
-        if option == 3:
-            search()
-    else:
-        if option == 1:
-            read(user['republic'])
-        if option == 2:
-            finance.list(user['republic'])
-        if option == 3:
-            financeName = input("\nDigite o nome da Despesa: ")
-            value       = float(input("Digite o valor da Despesa: R$"))
-            finance.create(user['republic'], financeName, value)
-        if option == 4:
-            receipt = float(input("\nDigite a quantia: R$"))
-            user = addReceipt(user, receipt)
-        if option == 5:
-            if finance.verify(user['republic']):
-                financeName = input("\nDigite o nome da Despesa ou seu ID: ")
-                finance.payOptions(user['republic'], financeName)
+    try:
+        option = pyRepublic(user)
+
+        if not user['has_republic']:
+            if not user['is_staff']:
+                if option > 3 and option < 8:
+                    print("Você não pode realizar essa operação. Tente novamente.")
+                elif option == 1:
+                    republicEnter = input("Escolha uma república: ")
+                    user = enter(user, republicEnter)
             else:
-                print("\nNão há despesas a pagar.")
-
-        if not user['is_staff']:
-            if option == 6:
-                user = leave(user)
+                if option > 3 and option < 8:
+                    print("Você não pode realizar essa operação. Tente novamente.")
+                elif option == 1:
+                    name = input("Digite o nome da sua república: ") 
+                    desc = input("Descreva a sua república: ")
+                    max  = int(input("Digite a Capacidade máxima da República: "))
+                    user = create(name, desc, user, max)
+            if option == 2:
+                list()
+            if option == 3:
+                search()
         else:
-            if option == 6:
-                newName = input("\nDigite o novo Nome: ")
-                newDesc = input("Digite a nova Descrição: ")
-                newCapacity = input("Digite a nova Capacidade Máxima: ")
-                user = update(user, newName, newDesc, newCapacity)
-            if option == 7:
-                user = delete(user, user['republic'])
+            if option == 1:
+                read(user['republic'])
+            if option == 2:
+                finance.list(user['republic'])
+            if option == 3:
+                financeName = input("\nDigite o nome da Despesa: ")
+                value       = float(input("Digite o valor da Despesa: R$"))
+                finance.create(user['republic'], financeName, value)
+            if option == 4:
+                receipt = float(input("\nDigite a quantia: R$"))
+                user = addReceipt(user, receipt)
+            if option == 5:
+                if finance.verify(user['republic']):
+                    financeName = input("\nDigite o nome da Despesa ou seu ID: ")
+                    finance.payOptions(user['republic'], financeName)
+                else:
+                    print("\nNão há despesas a pagar.")
 
-    if option == 0:
-        print("", end="\n")
-        option = -1
-    else:
-        input()
+            if not user['is_staff']:
+                if option == 6:
+                    user = leave(user)
+            else:
+                if option == 6:
+                    newName = input("\nDigite o novo Nome: ")
+                    newDesc = input("Digite a nova Descrição: ")
+                    newCapacity = input("Digite a nova Capacidade Máxima: ")
+                    user = update(user, newName, newDesc, newCapacity)
+                if option == 7:
+                    user = delete(user, user['republic'])
+
+        if option == 0:
+            print("", end="\n")
+            option = -1
+        else:
+            input("\nAperter ENTER para Continuar.")
+    except:
+        option = 9
+        
     return option, user
