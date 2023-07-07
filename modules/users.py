@@ -1,5 +1,5 @@
 from tinydb             import TinyDB           as database, Query
-from modules.republics  import republicOptions
+from modules.republics  import republicOptions, leave, delete
 from modules.screens    import pyUser
 
 db = database('./db.json', indent=4)
@@ -34,6 +34,23 @@ def register(name, password, tel, is_staff):
     )
 
     return login(name, password)
+
+def delete(user):
+    if user['has_republic']:
+        if user['is_staff']:
+            input(user)
+            user, remocao = delete(user)
+            input(user)
+        else:
+            user = leave(user)
+
+    if not remocao:
+        user_db.remove(User.name == user['name'])
+        return False
+    else:
+        print("Não foi possível excluir o usuário, ainda há pendências.")
+        return user
+
 
 #USER OPTIONS
 
@@ -112,6 +129,10 @@ def userOptions(user):
         elif option == 6:
             _bank = float(input("\nDigite um valor para adicionar: R$"))
             user = addBank(user, _bank)
+        elif option == 7:
+            confirm = input("Você tem certeza [S/N]? ")
+            if confirm == "S":
+                user = delete(user)
     
         if option == 0:
             print("", end="\n")

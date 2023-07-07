@@ -53,24 +53,6 @@
             "has_republic": true,
             "republic": "Rep\u00fablica dos Matem\u00e1ticos",
             "bank": 0
-        },
-        "7": {
-            "name": "S",
-            "password": "1234",
-            "tel": "96682258",
-            "is_staff": false,
-            "has_republic": true,
-            "republic": "Turma de BSI",
-            "bank": 0.0
-        },
-        "8": {
-            "name": "s",
-            "password": "4567",
-            "tel": "5645654",
-            "is_staff": false,
-            "has_republic": false,
-            "republic": "none",
-            "bank": 0
         }
     },
     "republic": {
@@ -81,8 +63,7 @@
             "receipt": 250.0,
             "capacity": 50,
             "students": [
-                "Alec",
-                "S"
+                "Alec"
             ]
         },
         "2": {

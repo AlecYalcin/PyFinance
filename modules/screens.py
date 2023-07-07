@@ -46,6 +46,7 @@ def pyUser(user):
     print("[4] Alterar Senha")
     print("[5] Alterar Telefone")
     print("[6] Adicionar Saldo")
+    print("[7] Excluir Conta")
     print("[0] Logout")
     print("##################################")
     option = int(input('Resposta: '))

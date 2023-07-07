@@ -48,6 +48,7 @@ def delete(user, name):
     finances_db = db.table('finance')
     republic_finances = finances_db.search(Republic.republic == name)
 
+    remocao = True
     if republic_finances == []:
         republic_db.remove(Republic.name == name)
         republic_users = user_db.search(Republic.republic == name)
@@ -57,8 +58,10 @@ def delete(user, name):
         print("Removido com Sucesso!")
     else: 
         print("Ainda há despesas para se pagar, não foi possível efetuar a remoção.")
+        remocao = False
+
     user = user_db.get(User.name == user['name'])
-    return user
+    return user, remocao
 
 # STRING OPTIONS
 
@@ -187,7 +190,7 @@ def republicOptions(user):
                     newCapacity = input("Digite a nova Capacidade Máxima: ")
                     user = update(user, newName, newDesc, newCapacity)
                 if option == 7:
-                    user = delete(user, user['republic'])
+                    user, remocao = delete(user, user['republic'])
 
         if option == 0:
             print("", end="\n")
