@@ -11,9 +11,10 @@ def login(name, password):
     UserQuery = Query()
     user = user_db.search((UserQuery.name == name) & (UserQuery.password == password))
     if not user == []:
-        print("Usuário encontrado, Autenticando....\n")
         return user[0]
-    return False
+    else:
+        input("Usuário não foi encontrado, aperte ENTER para continuar.")
+        return False
 
 def register(name, password, tel, is_staff):
     if is_staff == 'S': 
@@ -54,7 +55,7 @@ def delete(user):
 #USER OPTIONS
 
 def printUser(user):
-    print(f"\n-> Usuário: {user['name']}\n-> Telefone: {user['tel']}\n-> Saldo: {user['bank']}\n-> República: {user['republic']}")
+    print(f"\n-> Usuário: {user['name']}\n-> Telefone: {user['tel']}\n-> Saldo: R${user['bank']}\n-> República: {user['republic']}")
 
 def newPassword(user, _password):
     if user['password'] == _password:

@@ -135,6 +135,7 @@ def addReceipt(user, receipt):
         republic = republic_db.get(Republic.name == user['republic'])
         republic_db.update({'receipt': republic['receipt']+receipt}, Republic.name == republic['name'])
         user_db.update({'bank': user['bank']-receipt} , User.name == user['name'])
+        print(f"Receita atual: R${republic['receipt']}")
     else:
         print("Você não possui essa quantia para adicionar. ")
 

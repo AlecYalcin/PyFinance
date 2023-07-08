@@ -7,7 +7,7 @@
             "is_staff": false,
             "has_republic": true,
             "republic": "Turma de BSI",
-            "bank": 0
+            "bank": 20.0
         },
         "2": {
             "name": "Flavius",
@@ -42,7 +42,7 @@
             "name": "Turma de BSI",
             "desc": "Turma feita para os alunos de BSI",
             "owner": "Flavius",
-            "receipt": 0,
+            "receipt": 300.0,
             "capacity": 50,
             "students": [
                 "Alec"
