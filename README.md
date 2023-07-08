@@ -24,13 +24,13 @@ Cada Módulo atua dependentemente do outro. Sendo o nível de Hierarquia: Usuár
 Os usuários são o módulo que identifica os usuários do programa e os divide entre Estudantes e Proprietários. Estudante é aquele que busca a República, estando apto a procurar por elas e ter acesso indefinido. Já o Proprietário é dono de uma república e serve somente de referência para a criação e manutenção de uma mesma república. 
 
 > ### Propriedades de Users
-> - `name: String`
-> - `password: String`
-> - `tel: String`
-> - `is_staff: Boolean`
-> - `has_republic: Boolean (False)`
-> - `republic: String (none)`
-> - `bank: Float (0.0)`
+> - `name: String
+> - password: String
+> - tel: String
+> - is_staff: Boolean
+> - has_republic: Boolean (False)
+> - republic: String (none)
+> - bank: Float (0.0)
 
 > ### Funções de Users
 > - `login(name: String, password: String)`
