@@ -1,5 +1,5 @@
 from tinydb             import TinyDB           as database, Query
-from modules.republics  import republicOptions, leave, delete
+from modules.republics  import republicOptions, leave, delete as deleteRepublic
 from modules.screens    import pyUser
 
 db = database('./db.json', indent=4)
@@ -36,15 +36,14 @@ def register(name, password, tel, is_staff):
     return login(name, password)
 
 def delete(user):
+    removed = False
     if user['has_republic']:
         if user['is_staff']:
-            input(user)
-            user, remocao = delete(user)
-            input(user)
+            user, removed = deleteRepublic(user, user['republic'])
         else:
             user = leave(user)
-
-    if not remocao:
+    
+    if removed or not user['is_staff']:
         user_db.remove(User.name == user['name'])
         return False
     else:

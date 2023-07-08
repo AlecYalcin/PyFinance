@@ -2,65 +2,47 @@
     "user": {
         "1": {
             "name": "Alec",
-            "password": "alec1234",
-            "tel": "(84) 98762-6875",
+            "password": "senhapadrao",
+            "tel": "(84) 987626875",
             "is_staff": false,
             "has_republic": true,
             "republic": "Turma de BSI",
-            "bank": 650.0
+            "bank": 0
         },
         "2": {
-            "name": "Jo\u00e3o Lucas",
-            "password": "joaolucasdantas",
-            "tel": "(84) 98888-4444",
-            "is_staff": false,
-            "has_republic": false,
-            "republic": "none",
+            "name": "Flavius",
+            "password": "turmadebsi",
+            "tel": "(84) 900001111",
+            "is_staff": true,
+            "has_republic": true,
+            "republic": "Turma de BSI",
             "bank": 0
         },
         "3": {
-            "name": "J\u00falio Azevedo",
-            "password": "warcraft34@",
-            "tel": "(84) 91234-1234",
-            "is_staff": false,
-            "has_republic": false,
-            "republic": "none",
-            "bank": 0
-        },
-        "4": {
-            "name": "Max Maximus",
-            "password": "meteorodepegasus",
-            "tel": "(83) 97878-8989",
-            "is_staff": false,
-            "has_republic": false,
-            "republic": "none",
-            "bank": 0
-        },
-        "5": {
-            "name": "Flavius",
-            "password": "turmadebsi",
-            "tel": "(84) 99999-9999",
-            "is_staff": true,
-            "has_republic": true,
-            "republic": "Turma de BSI",
-            "bank": 0
-        },
-        "6": {
             "name": "M\u00e1rcio",
             "password": "algebralinear",
-            "tel": "(84) 98888-8888",
+            "tel": "(84) 977776666",
             "is_staff": true,
             "has_republic": true,
             "republic": "Rep\u00fablica dos Matem\u00e1ticos",
+            "bank": 0
+        },
+        "4": {
+            "name": "Jo\u00e3o Lucas",
+            "password": "joaolucas",
+            "tel": "(83) 923234545",
+            "is_staff": false,
+            "has_republic": false,
+            "republic": "none",
             "bank": 0
         }
     },
     "republic": {
         "1": {
             "name": "Turma de BSI",
-            "desc": "Rep\u00fablica feita para a turma de BSI",
+            "desc": "Turma feita para os alunos de BSI",
             "owner": "Flavius",
-            "receipt": 250.0,
+            "receipt": 0,
             "capacity": 50,
             "students": [
                 "Alec"
@@ -68,7 +50,7 @@
         },
         "2": {
             "name": "Rep\u00fablica dos Matem\u00e1ticos",
-            "desc": "Rep\u00fablica s\u00f3 para quem passar em \u00e1lgebra linear, hehehe",
+            "desc": "Rep\u00fablica para os Matem\u00e1ticos",
             "owner": "M\u00e1rcio",
             "receipt": 0,
             "capacity": 4,
@@ -77,22 +59,40 @@
     },
     "finance": {
         "1": {
-            "republic": "Turma de BSI",
+            "republic": "Rep\u00fablica dos Matem\u00e1ticos",
             "id": 1,
             "name": "Conta de \u00c1gua",
             "value": 200.0
         },
         "2": {
-            "republic": "Turma de BSI",
+            "republic": "Rep\u00fablica dos Matem\u00e1ticos",
             "id": 2,
             "name": "Conta de Luz",
             "value": 120.0
         },
         "3": {
-            "republic": "Turma de BSI",
+            "republic": "Rep\u00fablica dos Matem\u00e1ticos",
             "id": 3,
             "name": "Internet",
-            "value": 100.0
+            "value": 60.0
+        },
+        "4": {
+            "republic": "Turma de BSI",
+            "id": 1,
+            "name": "G\u00e1s de Cozinha",
+            "value": 70.0
+        },
+        "5": {
+            "republic": "Turma de BSI",
+            "id": 2,
+            "name": "Fog\u00e3o 4 Bocas",
+            "value": 950.45
+        },
+        "6": {
+            "republic": "Turma de BSI",
+            "id": 3,
+            "name": "Computadores Novos",
+            "value": 7259.99
         }
     }
 }

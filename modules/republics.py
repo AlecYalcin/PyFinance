@@ -48,20 +48,22 @@ def delete(user, name):
     finances_db = db.table('finance')
     republic_finances = finances_db.search(Republic.republic == name)
 
-    remocao = True
+    removed = True
     if republic_finances == []:
-        republic_db.remove(Republic.name == name)
-        republic_users = user_db.search(Republic.republic == name)
+        republic_users = user_db.search(User.republic == name)
         for attuser in republic_users:
+            input(attuser)
             attuser = leave(attuser)
-        
+
+        republic_db.remove(Republic.name == name)
+
         print("Removido com Sucesso!")
     else: 
         print("Ainda há despesas para se pagar, não foi possível efetuar a remoção.")
-        remocao = False
+        removed = False
 
     user = user_db.get(User.name == user['name'])
-    return user, remocao
+    return user, removed
 
 # STRING OPTIONS
 
@@ -117,7 +119,8 @@ def leave(user):
     republic = republic_db.get(Republic.name == user['republic'])
 
     students = republic['students']
-    students.remove(user['name'])
+    if students and not user['is_staff']:
+        students.remove(user['name'])
 
     user_db.update({'has_republic': False}, User.name == user['name'])
     user_db.update({'republic': 'none'}, User.name == user['name'])
@@ -147,6 +150,7 @@ def republicOptions(user):
                 if option > 3 and option < 8:
                     print("Você não pode realizar essa operação. Tente novamente.")
                 elif option == 1:
+                    list()
                     republicEnter = input("Escolha uma república: ")
                     user = enter(user, republicEnter)
             else:
