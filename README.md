@@ -26,6 +26,7 @@ Se refere aos usuários da república de estudante, os próprios moradores. Com 
 Existem alguns tipos de autenticação especiais: A do proprietário e dos estudantes.
 
 1. A do proprietário
+serve somente para ele ter controle sobre a república, cobrar as despesas e receber o dinheiro da receitas essenciais dos estudantes. Aquelas que o proprietário pode registrar como fixas.
 
 2. A do estudante
 Serve para os estudantes terem ideia das finanças, além das fixas, e registrá-las para que todos os outros estudantes tenham ideia do que se está acontecendo.
