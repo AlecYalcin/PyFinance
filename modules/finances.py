@@ -40,7 +40,7 @@ def payOptions(republic, finance):
     finances = search(finance, republic)
 
     if finances == []:
-        finance = finance_db.get(query.id == int(finance))
+        finance = finance_db.get((query.id == int(finance)) & (query.republic == republic['name']))
         
         if finance:
             pay(republic, finance)
@@ -51,15 +51,18 @@ def payOptions(republic, finance):
         print("Várias despesas foram retornadas, digite o nome completo: \n")
         for finance in finances:
             printFinance(finance)
+    elif len(finances) == 1:
+        finance = finances[0]
+        pay(republic, finance)
     else:
         print("Nenhuma despesa foi retornada, talvez você quis dizer: ")
         for finance in finances:
             printFinance(finance)
-        finance = finances[0]
-        pay(republic, finance)
+        
         
 
 def pay(republic, finance):
+    printFinance(finance)
     if republic['receipt'] >= finance['value']:
             republic_db.update({'receipt': republic['receipt'] - finance['value']}, query.name == republic['name'])
 
@@ -70,7 +73,7 @@ def pay(republic, finance):
             finance_db.remove((query.name == finance['name']) & (query.republic == finance['republic']))
             print("Despesa paga com sucesso!")
     else:
-        print("Receita insuficiente para pagar essa despesa.")
+        print("\nReceita insuficiente para pagar essa despesa.")
         print("Adicione: R$" + str(finance['value'] - republic['receipt']))
 
 def search(text, republic):

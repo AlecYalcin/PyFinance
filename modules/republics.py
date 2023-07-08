@@ -179,6 +179,7 @@ def republicOptions(user):
                 user = addReceipt(user, receipt)
             if option == 5:
                 if finance.verify(user['republic']):
+                    finance.list(user['republic'])
                     financeName = input("\nDigite o nome da Despesa ou seu ID: ")
                     finance.payOptions(user['republic'], financeName)
                 else:
