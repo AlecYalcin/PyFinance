@@ -1,5 +1,5 @@
 # PyFinance
-Sistema de gestão de despesas em uma república de estudantes.
+Sistema de gestão de despesas em uma república de estudantes
 
 # Concepção
 Docente: Flavius Gorgônio
@@ -9,80 +9,33 @@ Projeto desenvolvido para avaliação da terceira unidade da matéria DCT1101 no
 
 ## Bibliotecas e Ferramentas Utilizadas
 1. Virtual Enviroment
-- Ferramenta disponibilizada pelo próprio Python, serve para o desenvolvimento interno, faciliza na integração e manipulação de bibliotecas.
-2. Bibliotecas Instaladas: TinyDB
-- Utilizado para guardar as informações em JSON como um banco de dados em dicionário. Caso utilize o código, não se esqueça de rodar:
-> pip install tinydb
-3. Bibliotecas Nativas: Os, Webbrouser e Platform
-- Somente utilizado para formatação geral do sistema.
+Ferramenta disponibilizada pelo próprio Python, serve para o desenvolvimento interno, faciliza na integração e manipulação de bibliotecas.
+2. TinyDB
+Utilizado para guardar as informações em JSON como um banco de dados em dicionário.
+3. Os, Webbrouser e Platform
+Somente utilizado para formatação geral do sistema.
 
-# Módulos
-O Projeto conta com três módulos: Usuários, Repúblicas e Despesas. Esses módulos atuam em conjunto para a construção da utilidade da ferramenta.
-Cada Módulo atua dependentemente do outro. Sendo o nível de Hierarquia: Usuários > Repúblicas > Despesas. 
+# Ideias e Módulos
 
-## Usuários
-Os usuários são o módulo que identifica os usuários do programa e os divide entre Estudantes e Proprietários. Estudante é aquele que busca a República, estando apto a procurar por elas e ter acesso indefinido. Já o Proprietário é dono de uma república e serve somente de referência para a criação e manutenção de uma mesma república. 
+O sistema contra com três módulos: Autenticação(Authentication), Despesas(Finances) e Republica(republics). O Principal objetivo do sistema é facilitar o pagamento das despesas, assim facilitando a vida do usuário. Contudo, um dos módulos adicionais serve para facilitar outros estudantes a encontarem despesas nas quais eles podem participar da renda e/ou tenham uma boa localização para eles.
 
-> ### Propriedades de Users
-> - `name: String
-> - password: String
-> - tel: String
-> - is_staff: Boolean
-> - has_republic: Boolean (False)
-> - republic: String (none)
-> - bank: Float (0.0)`
+## Authentication
 
-> ### Funções de Users
-> - `login(name: String, password: String)`
->   - `Retorna "user" como um dicionário.`
-> - `register(name: String, password: String, tel: String, is_staff: Boolean)`
->   - `Retorna a função login(user).`
-> - `printUser(user: Dictionary)`
->   - `Não tem retorno. Executa um print que retorna todas as informações do usuário formatadas`
-> - `newName(user: Dictionary, _name: String)`
->   - `Retorna o dicionário user. Altera o valor do nome do usuário no banco de dados local.`
-> - `newPassword(user: Dictionary, _password: String)`
->   - `Retorna o dicionário user. Altera o valor da senha do usuário no banco de dados local.`
-> - `newTel(user: Dictionary, _tel: String)`
->   - `Retorna o dicionário user. Altera o valor do telefone do usuário no banco de dados local.`
-> - `addBank(user: Dictionary, _bank: Float)`
->   - `Retorna o dicionário user. Adiciona valores float para o valor banco do usuário.`
-> - `userOptions(user: Dictionary)`
->   - `Retorna int options e dicionário user. Retorna um valor de escolha do usuário.`
+Se refere aos usuários da república de estudante, os próprios moradores. Com funções para adicionar e retirar esses mesmos estudantes, curso, matrícula...
 
-## Repúblicas
-As repúblicas são as versões digitais dos cômodos físicos reais. Aqui se registra o nome e a descrição, na qual o proprietário pode optar por falar quem deve ser parte da república Os usuários podem entrar em quaisquer repúblicas, contanto que existam. Além disso eles não podem ultrapassar a capacidade da república, sendo definida também pelo proprietário em sua criação.
+Existem alguns tipos de autenticação especiais: A do proprietário e dos estudantes.
 
-> ### Propriedades de Republics
-> - `name: String`
-> - `desc: String`
-> - `owner: String`
-> - `receipt: Float (0.0)`
-> - `capacity: Int`
-> - `students: List ([])`
+1. A do proprietário
 
-> ### Funções de Users
-> - `create(name: String, password: String)`
->   - `Retorna "user" como um dicionário.`
-> - `read(name: String, password: String, tel: String, is_staff: Boolean)`
->   - `Retorna a função login(user).`
-> - `update(user: Dictionary)`
->   - `Não tem retorno. Executa um print que retorna todas as informações do usuário formatadas`
-> - `newName(user: Dictionary, _name: String)`
->   - `Retorna o dicionário user. Altera o valor do nome do usuário no banco de dados local.`
-> - `newPassword(user: Dictionary, _password: String)`
->   - `Retorna o dicionário user. Altera o valor da senha do usuário no banco de dados local.`
-> - `newTel(user: Dictionary, _tel: String)`
->   - `Retorna o dicionário user. Altera o valor do telefone do usuário no banco de dados local.`
-> - `addBank(user: Dictionary, _bank: Float)`
->   - `Retorna o dicionário user. Adiciona valores float para o valor banco do usuário.`
-> - `userOptions(user: Dictionary)`
->   - `Retorna int options e dicionário user. Retorna um valor de escolha do usuário.`
-> - `userOptions(user: Dictionary)`
->   - `Retorna int options e dicionário user. Retorna um valor de escolha do usuário.`
-> - `userOptions(user: Dictionary)`
->   - `Retorna int options e dicionário user. Retorna um valor de escolha do usuário.`
-> - `userOptions(user: Dictionary)`
->   - `Retorna int options e dicionário user. Retorna um valor de escolha do usuário.`
+2. A do estudante
+Serve para os estudantes terem ideia das finanças, além das fixas, e registrá-las para que todos os outros estudantes tenham ideia do que se está acontecendo.
 
-## Despesas
+## Finances
+
+Se refere as próprias despesas, nome, custo, receita disponível suficiente.
+
+## Republics
+
+Se refere as repúblicas dos estudantes. Afim de fiscalizar e prezar pela manutenção do sistema, diferentes república poderão utilizar-se do sistema.
+
+As repúblicas informam se há vagas para aquela república se um estudante quiser entrar nela. Também informa dos custos a se pagar para participar ativamente daquela república.
