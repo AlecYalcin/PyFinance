@@ -40,3 +40,7 @@ Se refere as próprias despesas, nome, custo, receita disponível suficiente.
 Se refere as repúblicas dos estudantes. Afim de fiscalizar e prezar pela manutenção do sistema, diferentes república poderão utilizar-se do sistema.
 
 As repúblicas informam se há vagas para aquela república se um estudante quiser entrar nela. Também informa dos custos a se pagar para participar ativamente daquela república.
+
+## Screens
+
+Módulo criado somente para as interfaces, para facilitar a navegação e o design dela.
